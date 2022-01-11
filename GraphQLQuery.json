@@ -1,0 +1,15 @@
+query {
+  movies(
+    where: { imdbRating_GT: 4}  
+    options: {limit: 2, sort:[ {imdbRating: DESC} ]} 
+  ) {
+    title
+    actors (where: { name_NOT: null }) { 
+      name
+      born
+    }
+    actorsConnection { 
+      totalCount
+    }
+  }
+}
